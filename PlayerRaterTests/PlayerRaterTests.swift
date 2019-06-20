@@ -30,5 +30,29 @@ class PlayerRaterTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    // MARK: Player Class Tests
+    func testPlayerInitializationSucceeds() {
+        // 0 rating
+        let zeroRatingPlayer = Player.init(name: "Zero", photo: nil, rating: 0)
+        XCTAssertNotNil(zeroRatingPlayer)
+        
+        // Highest positive rating
+        let positiveRatingPlayer = Player.init(name: "Positive", photo: nil, rating: 5)
+        XCTAssertNotNil(positiveRatingPlayer)
+        
+        // Rating above max
+        let largeRatingPlayer = Player.init(name: "Large", photo: nil, rating: 6)
+        XCTAssertNil(largeRatingPlayer)
+        
+        // Negative rating
+        let negativeRatingPlayer = Player.init(name: "Negative", photo: nil, rating: -1)
+        XCTAssertNil(negativeRatingPlayer)
+        
+        // Empty Name
+        let emptyNamePlayer = Player.init(name: "", photo: nil, rating: 0)
+        XCTAssertNil(emptyNamePlayer)
+
+    }
 
 }
