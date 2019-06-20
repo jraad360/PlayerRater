@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PlayerViewController.swift
 //  PlayerRater
 //
 //  Created by Jorge Alejandro Raad on 6/12/19.
@@ -8,10 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PlayerViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // MARK: Properties
-    @IBOutlet weak var playerLabel: UILabel!
     @IBOutlet weak var playerTextField: UITextField!
     @IBOutlet weak var playerImage: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
@@ -23,7 +22,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         playerTextField.delegate = self
     }
 
-    // MARK: Actions    
+    // MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         // hide keyboard
         playerTextField.resignFirstResponder()
@@ -43,12 +42,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         // Hide keyboard
         textField.resignFirstResponder()
-        playerTextField.text = ""
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        playerLabel.text = textField.text
     }
     
     // MARK: UIImagePickerControllerDelegate
