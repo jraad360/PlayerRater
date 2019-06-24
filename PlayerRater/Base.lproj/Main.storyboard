@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mHY-Pu-eHt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OYY-q5-pla">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Player View Controller-->
+        <!--New Player-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PlayerViewController" customModule="PlayerRater" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZV1-fI-LJz">
-                                <rect key="frame" x="20" y="64" width="374" height="410"/>
+                                <rect key="frame" x="20" y="108" width="374" height="410"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter player name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmb-uZ-Wk2">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -54,10 +54,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="New Player" id="A2o-da-jsn">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ttU-3w-qCW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="IH2-Ly-4Wf"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="playerImage" destination="85W-5l-CFI" id="Q36-pX-iBw"/>
                         <outlet property="playerTextField" destination="fmb-uZ-Wk2" id="kvq-Qk-owR"/>
                         <outlet property="ratingControl" destination="9ez-ta-5YY" id="XCQ-KM-YOS"/>
+                        <outlet property="saveButton" destination="IH2-Ly-4Wf" id="eoO-me-B2a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -67,9 +72,9 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="113.04347826086958" y="126.5625"/>
+            <point key="canvasLocation" x="1933.3333333333335" y="126.5625"/>
         </scene>
-        <!--Player Table View Controller-->
+        <!--Your Players-->
         <scene sceneID="rwO-EC-hIf">
             <objects>
                 <tableViewController storyboardIdentifier="PlayerTableViewController" id="mHY-Pu-eHt" customClass="PlayerTableViewController" customModule="PlayerRater" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,10 +119,55 @@
                             <outlet property="delegate" destination="mHY-Pu-eHt" id="FzH-gK-Mtr"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Your Players" id="mBK-ha-kmR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="y66-5Z-0bk">
+                            <connections>
+                                <segue destination="z0h-5N-Jmf" kind="modal" identifier="AddItem" id="3vY-O1-VWM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4I-IH-Fg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="347.82608695652175" y="126.5625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4jr-nt-emI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OYY-q5-pla" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ja5-LI-0sv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mHY-Pu-eHt" kind="relationship" relationship="rootViewController" id="yCd-Xf-8R7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WC4-Yh-dXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="-562.31884057971024" y="126.5625"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mR9-Xf-3fV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="z0h-5N-Jmf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="m5X-xt-uTz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="npE-Ef-QU6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SNk-xG-vCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1023.1884057971015" y="126.5625"/>
         </scene>
     </scenes>
     <resources>

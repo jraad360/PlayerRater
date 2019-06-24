@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class PlayerViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -14,6 +15,9 @@ class PlayerViewController: UIViewController, UITextFieldDelegate, UIImagePicker
     @IBOutlet weak var playerTextField: UITextField!
     @IBOutlet weak var playerImage: UIImageView!
     @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    var player: Player?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,11 @@ class PlayerViewController: UIViewController, UITextFieldDelegate, UIImagePicker
         playerTextField.delegate = self
     }
 
+    // MARK: Navigation
+    override func prepar(for: segue, sender: sender) {
+        
+    }
+    
     // MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
         // hide keyboard
